@@ -6,7 +6,7 @@ RUN npm install --production --silent && mv node_modules ../
 COPY . .
 EXPOSE 3000
 RUN chown -R node /usr/src/app
-RUN apk add --no-cache docker
-RUN groupadd -g node docker
+RUN apk add docker
+RUN addgroup node docker
 USER node
 CMD ["npm", "start"]
