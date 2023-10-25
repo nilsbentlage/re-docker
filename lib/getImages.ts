@@ -8,7 +8,7 @@ export async function returnRoutes() {
         console.log("Error searching for Images | ", err);
         return;
       }
-      let dockerData: any = JSON.parse("[" + stdout.replace("}", "},") + "]");
+      let dockerData: any = JSON.parse("[" + stdout.replace(/}/g, "},") + "]");
       const imageNames = dockerData.map((container: any) => container.Image);
       resolve(
         imageNames.map((image: any) => {
