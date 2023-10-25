@@ -11,7 +11,7 @@ export async function returnRoutes() {
       let dockerData: any = JSON.parse("[" + stdout.replace("}", "},") + "]");
       const imageNames = dockerData.map((container: any) => container.Image);
       resolve(
-        imageNames.map((image) => {
+        imageNames.map((image: any) => {
           return {
             imageName: image,
             hookUrl: crypto.randomUUID(),
